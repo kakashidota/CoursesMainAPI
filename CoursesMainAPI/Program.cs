@@ -35,37 +35,31 @@ namespace CoursesMainAPI
 
             app.MapGet("/courses", async() =>
             {
-                var courses = await db.GetAllCourses("Courses");
-                return Results.Ok(courses);
+          
 
             });
 
             app.MapGet("/course/{id}", async (Guid id) =>
             {
-                var course = await db.GetCourseById("Courses",id);
-                return Results.Ok(course);
+             
             });
 
 
             app.MapPost("/course", async (Courses course) =>
             {
-                var usertest = await db.AddCourse("Courses", course);
-                return Results.Ok(usertest);
+
             });
 
             app.MapPut("/course/{id}", async (Courses updatedCourse, Guid id) =>
             {
 
-                var course = await db.UpdateCourse("Courses", updatedCourse);
-                return Results.Ok(course);
 
             });
 
 
             app.MapDelete("/course/{id}", async (Guid id) =>
             {
-                var course = await db.DeleteCourse("Courses", id);
-                return Results.Ok(course);
+
             });
 
             app.Run();
